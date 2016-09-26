@@ -4,7 +4,7 @@
   "description": "Audentio front-end Javascript utilities",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node exporter"
   },
   "repository": {
     "type": "git",
@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/Audentio/js-utils/issues"
   },
-  "homepage": "https://github.com/Audentio/js-utils#readme"
+  "homepage": "https://github.com/Audentio/js-utils#readme",
+  "devDependencies": {
+    "node-watch": "^0.4.0"
+  }
 }
