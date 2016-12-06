@@ -1,10 +1,25 @@
-export addScript from './lib/addScript'
-export addStylesheet from './lib/addStylesheet'
-export capitalize from './lib/capitalize'
-export classy from './lib/classy'
-export fuzzyMatch from './lib/fuzzyMatch'
-export offView from './lib/offView'
-export routeLoader from './lib/routeLoader'
-export storage from './lib/storage'
-export throttle from './lib/throttle'
-export xhr from './lib/xhr'
+module.exports = {
+    addScript: require('lib/addScript.js'),
+    addStylesheet: require('lib/addStylesheet.js'),
+    capitalize: require('lib/capitalize.js'),
+    classy: require('lib/classy.js'),
+    countryCodes: require('lib/countryCodes.js'),
+    downloadFile: require('lib/downloadFile.js'),
+    format: require('lib/format.js'),
+    fullscreen: require('lib/fullscreen.js'),
+    fuzzyMatch: require('lib/fuzzyMatch.js'),
+    index: require('lib/index.js'),
+    keymap: require('lib/keymap.js'),
+    logger: require('lib/logger.js'),
+    offView: require('lib/offView.js'),
+    parseJSX: require('lib/parseJSX.js'),
+    presets: require('lib/presets.js'),
+    pureRender: require('lib/pureRender.js'),
+    routeLoader: require('lib/routeLoader.js'),
+    slugify: require('lib/slugify.js'),
+    storage: require('lib/storage.js'),
+    throttle: require('lib/throttle.js'),
+    time: require('lib/time.js'),
+    truncate: require('lib/truncate.js'),
+    xhr: require('lib/xhr.js'),
+};

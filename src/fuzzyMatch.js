@@ -1,9 +1,3 @@
-'use strict';
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-exports.default = fuzzyMatch;
 // https://github.com/forrestthewoods/lib_fts/blob/master/code/fts_fuzzy_match.js
 // fuzzy_match()
 // Returns [bool, score, formattedStr]
@@ -11,14 +5,14 @@ exports.default = fuzzyMatch;
 // score: integer; higher is better match. Value has no intrinsic meaning. Range varies with pattern. 
 //        Can only compare scores with same search pattern.
 // formattedStr: input str with matched characters marked in <b> tags. Delete if unwanted.
-function fuzzyMatch(pattern, str) {
+export default function fuzzyMatch(pattern, str) {
     // Score consts
-    var adjacency_bonus = 5; // bonus for adjacent matches
-    var separator_bonus = 10; // bonus if match occurs after a separator
-    var camel_bonus = 10; // bonus if match is uppercase and prev is lower
-    var leading_letter_penalty = -3; // penalty applied for every letter in str before the first match
-    var max_leading_letter_penalty = -9; // maximum penalty for leading letters
-    var unmatched_letter_penalty = -1; // penalty for every letter that doesn't matter
+    var adjacency_bonus = 5;                // bonus for adjacent matches
+    var separator_bonus = 10;               // bonus if match occurs after a separator
+    var camel_bonus = 10;                   // bonus if match is uppercase and prev is lower
+    var leading_letter_penalty = -3;        // penalty applied for every letter in str before the first match
+    var max_leading_letter_penalty = -9;    // maximum penalty for leading letters
+    var unmatched_letter_penalty = -1;      // penalty for every letter that doesn't matter
 
     // Loop variables
     var score = 0;
@@ -28,7 +22,7 @@ function fuzzyMatch(pattern, str) {
     var strLength = str.length;
     var prevMatched = false;
     var prevLower = false;
-    var prevSeparator = true; // true so if first letter match gets separator bonus
+    var prevSeparator = true;       // true so if first letter match gets separator bonus
 
     // Use "best" matched letter if multiple string letters match the pattern
     var bestLetter = null;
@@ -72,22 +66,27 @@ function fuzzyMatch(pattern, str) {
             }
 
             // Apply bonus for consecutive bonuses
-            if (prevMatched) newScore += adjacency_bonus;
+            if (prevMatched)
+                newScore += adjacency_bonus;
 
             // Apply bonus for matches after a separator
-            if (prevSeparator) newScore += separator_bonus;
+            if (prevSeparator)
+                newScore += separator_bonus;
 
             // Apply bonus across camel case boundaries. Includes "clever" isLetter check.
-            if (prevLower && strChar == strUpper && strLower != strUpper) newScore += camel_bonus;
+            if (prevLower && strChar == strUpper && strLower != strUpper)
+                newScore += camel_bonus;
 
             // Update patter index IFF the next pattern letter was matched
-            if (nextMatch) ++patternIdx;
+            if (nextMatch)
+                ++patternIdx;
 
             // Update best letter in str which may be for a "next" letter or a "rematch"
             if (newScore >= bestLetterScore) {
 
                 // Apply penalty for now skipped letter
-                if (bestLetter != null) score += unmatched_letter_penalty;
+                if (bestLetter != null)
+                    score += unmatched_letter_penalty;
 
                 bestLetter = strChar;
                 bestLower = bestLetter.toLowerCase();
@@ -96,7 +95,8 @@ function fuzzyMatch(pattern, str) {
             }
 
             prevMatched = true;
-        } else {
+        }
+        else {
             // Append unmatch characters
             formattedStr += strChar;
 
@@ -132,6 +132,7 @@ function fuzzyMatch(pattern, str) {
     return [matched, score, formattedStr];
 }
 
+
 // Strictly optional utility to help make using fts_fuzzy_match easier for large data sets
 // Uses setTimeout to process matches before a maximum amount of time before sleeping
 //
@@ -141,9 +142,9 @@ function fuzzyMatch(pattern, str) {
 //      asyncMatcher.start();
 //
 function fts_fuzzy_match_async(matchFn, pattern, dataSet, onComplete) {
-    var ITEMS_PER_CHECK = 1000; // performance.now can be very slow depending on platform
+    var ITEMS_PER_CHECK = 1000;         // performance.now can be very slow depending on platform
 
-    var max_ms_per_frame = 1000.0 / 30.0; // 30FPS
+    var max_ms_per_frame = 1000.0/30.0; // 30FPS
     var dataIndex = 0;
     var results = [];
     var resumeTimeout = null;
@@ -156,7 +157,7 @@ function fts_fuzzy_match_async(matchFn, pattern, dataSet, onComplete) {
         var stopTime = performance.now() + max_ms_per_frame;
 
         for (; dataIndex < dataSet.length; ++dataIndex) {
-            if (dataIndex % ITEMS_PER_CHECK == 0) {
+            if ((dataIndex % ITEMS_PER_CHECK) == 0) {
                 if (performance.now() > stopTime) {
                     resumeTimeout = setTimeout(step, 1);
                     return;
@@ -165,9 +166,12 @@ function fts_fuzzy_match_async(matchFn, pattern, dataSet, onComplete) {
 
             var str = dataSet[dataIndex];
             var result = matchFn(pattern, str);
-
+            
             // A little gross because fuzzy_match_simple and fuzzy_match return different things
-            if (matchFn == fuzzy_match_simple && result == true) results.push(str);else if (matchFn == fuzzy_match && result[0] == true) results.push(result);
+            if (matchFn == fuzzy_match_simple && result == true)
+                results.push(str);
+            else if (matchFn == fuzzy_match && result[0] == true)
+                results.push(result);
         }
 
         onComplete(results);
@@ -175,19 +179,20 @@ function fts_fuzzy_match_async(matchFn, pattern, dataSet, onComplete) {
     };
 
     // Abort current process
-    this.cancel = function () {
-        if (resumeTimeout !== null) clearTimeout(resumeTimeout);
+    this.cancel = function() {
+        if (resumeTimeout !== null)
+            clearTimeout(resumeTimeout);
     };
 
     // Must be called to start matching.
     // I tried to make asyncMatcher auto-start via "var resumeTimeout = step();" 
     // However setTimout behaving in an unexpected fashion as onComplete insisted on triggering twice.
-    this.start = function () {
+    this.start = function() {
         step();
-    };
+    }
 
     // Process full list. Blocks script execution until complete
-    this.flush = function () {
+    this.flush = function() {
         max_ms_per_frame = Infinity;
         step();
     };
