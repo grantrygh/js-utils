@@ -9,7 +9,7 @@ const writeExports = () => {
 
     utils.forEach(util => {
         const component = util.split('.js')[0];
-        content += '\n    ' + component + ': require(\'lib/'+ component +'.js\'),';
+        content += '\n    ' + component + ': require(\'./lib/'+ component +'.js\'),';
     });
 
     content += '\n};\n';
