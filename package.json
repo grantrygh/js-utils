@@ -1,11 +1,12 @@
 {
   "name": "js-utils",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Audentio front-end Javascript utilities",
   "main": "index.js",
   "scripts": {
     "export": "node exporter",
-    "start": "babel src --watch --out-dir lib"
+    "start": "babel src --watch --out-dir lib",
+    "build": "babel src --out-dir lib;node exporter"
   },
   "repository": {
     "type": "git",
