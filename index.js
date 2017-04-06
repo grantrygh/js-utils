@@ -16,6 +16,7 @@ module.exports = {
     get presets() { return require('./lib/presets').default; },
     get pureRender() { return require('./lib/pureRender').default; },
     get routeLoader() { return require('./lib/routeLoader').default; },
+    get scrollTo() { return require('./lib/scrollTo').default; },
     get slugify() { return require('./lib/slugify').default; },
     get storage() { return require('./lib/storage').default; },
     get throttle() { return require('./lib/throttle').default; },
