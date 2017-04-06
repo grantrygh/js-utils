@@ -6,6 +6,7 @@ module.exports = {
     get countryCodes() { return require('./lib/countryCodes').default; },
     get createChainableTypeChecker() { return require('./lib/createChainableTypeChecker').default; },
     get downloadFile() { return require('./lib/downloadFile').default; },
+    get easings() { return require('./lib/easings').default; },
     get format() { return require('./lib/format').default; },
     get fullscreen() { return require('./lib/fullscreen').default; },
     get fuzzyMatch() { return require('./lib/fuzzyMatch').default; },
