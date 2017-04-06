@@ -1,22 +1,23 @@
-export default function createChainableTypeChecker(validate) {
-    function checkType(isRequired, props, propName, componentName, location) {
-        componentName = componentName || ANONYMOUS;
+const chainablePropType = predicate => {
+    const propType = (props, propName, componentName) => {
+        // don't do any validation if empty
         if (props[propName] == null) {
-            var locationName = ReactPropTypeLocationNames[location];
-            if (isRequired) {
-                return new Error(
-                    ("Required " + locationName + " `" + propName + "` was not specified in ") +
-                    ("`" + componentName + "`.")
-                );
-            }
-            return null;
-        } else {
-            return validate(props, propName, componentName, location);
+          return;
         }
+
+        return predicate(props, propName, componentName);
     }
 
-    let chainedCheckType = checkType.bind(null, false);
-    chainedCheckType.isRequired = checkType.bind(null, true);
+    propType.isRequired = (props, propName, componentName) => {
+        // warn if empty
+        if (props[propName] == null) {
+            return new Error(`Required prop \`${propName}\` was not specified in \`${componentName}\`.`);
+        }
 
-    return chainedCheckType;
+        return predicate(props, propName, componentName);
+    }
+
+    return propType;
 }
+
+export default chainablePropType;

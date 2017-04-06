@@ -1,24 +1,25 @@
-exports.addScript = require('./lib/addScript.js').default;
-exports.addStylesheet = require('./lib/addStylesheet.js').default;
-exports.capitalize = require('./lib/capitalize.js').default;
-exports.classy = require('./lib/classy.js').default;
-exports.countryCodes = require('./lib/countryCodes.js').default;
-exports.createChainableTypeChecker = require('./lib/createChainableTypeChecker.js').default;
-exports.downloadFile = require('./lib/downloadFile.js').default;
-exports.format = require('./lib/format.js').default;
-exports.fullscreen = require('./lib/fullscreen.js').default;
-exports.fuzzyMatch = require('./lib/fuzzyMatch.js').default;
-exports.index = require('./lib/index.js').default;
-exports.keymap = require('./lib/keymap.js').default;
-exports.logger = require('./lib/logger.js').default;
-exports.offView = require('./lib/offView.js').default;
-exports.parseJSX = require('./lib/parseJSX.js').default;
-exports.presets = require('./lib/presets.js').default;
-exports.pureRender = require('./lib/pureRender.js').default;
-exports.routeLoader = require('./lib/routeLoader.js').default;
-exports.slugify = require('./lib/slugify.js').default;
-exports.storage = require('./lib/storage.js').default;
-exports.throttle = require('./lib/throttle.js').default;
-exports.time = require('./lib/time.js').default;
-exports.truncate = require('./lib/truncate.js').default;
-exports.xhr = require('./lib/xhr.js').default;
+module.exports = {
+    get addScript() { return require('./lib/addScript').default; },
+    get addStylesheet() { return require('./lib/addStylesheet').default; },
+    get capitalize() { return require('./lib/capitalize').default; },
+    get classy() { return require('./lib/classy').default; },
+    get countryCodes() { return require('./lib/countryCodes').default; },
+    get createChainableTypeChecker() { return require('./lib/createChainableTypeChecker').default; },
+    get downloadFile() { return require('./lib/downloadFile').default; },
+    get format() { return require('./lib/format').default; },
+    get fullscreen() { return require('./lib/fullscreen').default; },
+    get fuzzyMatch() { return require('./lib/fuzzyMatch').default; },
+    get keymap() { return require('./lib/keymap').default; },
+    get logger() { return require('./lib/logger').default; },
+    get offView() { return require('./lib/offView').default; },
+    get parseJSX() { return require('./lib/parseJSX').default; },
+    get presets() { return require('./lib/presets').default; },
+    get pureRender() { return require('./lib/pureRender').default; },
+    get routeLoader() { return require('./lib/routeLoader').default; },
+    get slugify() { return require('./lib/slugify').default; },
+    get storage() { return require('./lib/storage').default; },
+    get throttle() { return require('./lib/throttle').default; },
+    get time() { return require('./lib/time').default; },
+    get truncate() { return require('./lib/truncate').default; },
+    get xhr() { return require('./lib/xhr').default; },
+};
