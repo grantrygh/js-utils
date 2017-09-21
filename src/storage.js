@@ -1,3 +1,5 @@
+import cookies from './cookies';
+
 /*
  * A (very) simple localStorage wrapper
  * facilitates storing and retrieving objects/arrays
@@ -24,9 +26,41 @@ const createStorage = storage => ({
     remove: item => storage.removeItem(item),
 });
 
-const storage = {
-    local: createStorage(localStorage),
-    session: createStorage(sessionStorage),
+const no_op = {
+    set: () => {},
+    get: () => {},
+    remove: () => {},
 };
 
-export default Object.assign({}, storage, storage.local);
+const storage = Object.assign({}, no_op, {
+    local: no_op,
+    session: no_op,
+    cookies: no_op,
+});
+
+if (process.env.isBrowser) {
+    storage.cookies = createStorage(cookies);
+
+    try {
+        // try catch for safari private mode
+        storage.local = createStorage(localStorage);
+        storage.session = createStorage(sessionStorage);
+
+        // try saving to localstorage
+        localStorage.setItem('localStorageTest', 1);
+        localStorage.removeItem('localStorageTest');
+
+        // set defaults to localstorage
+        storage.set = storage.local.set;
+        storage.get = storage.local.get;
+        storage.remove = storage.local.remove;
+    } catch (e) {
+        // localStorage failed
+        // set defaults to cookie
+        storage.set = storage.cookies.set;
+        storage.get = storage.cookies.get;
+        storage.remove = storage.cookies.remove;
+    }
+}
+
+export default storage;

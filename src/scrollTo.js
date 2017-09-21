@@ -1,12 +1,21 @@
+// @flow
+
 import { easeInOutQuad } from './easings';
 
-export default function scrollTo(
-    to, {
+type scrollConfig = {
+    callback?: Function,
+    duration: number,
+    targetNode: any,
+    easing: Function,
+};
+
+export default function scrollTo(to: number, 
+    {
         callback,
         duration = 500,
         targetNode = document.body,
         easing = easeInOutQuad,
-    } = {},
+    }: scrollConfig = {},
     ) {
     if (duration) {
         const initialPosition = targetNode.scrollTop;
