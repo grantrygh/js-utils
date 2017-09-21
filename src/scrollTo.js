@@ -13,21 +13,23 @@ export default function scrollTo(to: number,
     {
         callback,
         duration = 500,
-        targetNode = document.body,
+        targetNode = window,
         easing = easeInOutQuad,
     }: scrollConfig = {},
-    ) {
+) {
+    const initialY = targetNode.scrollY;
+    const initialX = targetNode.scrollX;
+    
     if (duration) {
-        const initialPosition = targetNode.scrollTop;
-        const diff = to - initialPosition;
+        const diff = to - initialY;
         const increment = 20;
         let currentTime = 0;
 
         const animateScroll = () => {
             currentTime += increment;
 
-            const newScrollTop = easing(currentTime, initialPosition, diff, duration);
-            targetNode.scrollTop = newScrollTop; // eslint-disable-line no-param-reassign
+            const newScrollTop = easing(currentTime, initialY, diff, duration);
+            targetNode.scrollTo(initialX, newScrollTop); // eslint-disable-line no-param-reassign
 
             // animate unless its over
             if (currentTime < duration) {
@@ -39,6 +41,6 @@ export default function scrollTo(to: number,
         
         animateScroll();
     } else {
-        targetNode.scrollTop = to;
+        targetNode.scrollTo(initialX, to);
     }
 }
