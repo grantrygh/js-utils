@@ -19,7 +19,6 @@ export fullscreen from './fullscreen';
 export format from './format';
 export slugify from './slugify';
 export scrollTo from './scrollTo';
-export Raven from './Raven';
 export findGetParameter from './findGetParameter';
 export domainLocalize from './domainLocalize';
 export passProps from './passProps';
