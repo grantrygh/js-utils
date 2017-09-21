@@ -1,5 +1,4 @@
 module.exports = {
-    get Raven() { return require('./lib/Raven').default; },
     get addScript() { return require('./lib/addScript').default; },
     get addStylesheet() { return require('./lib/addStylesheet').default; },
     get capitalize() { return require('./lib/capitalize').default; },
