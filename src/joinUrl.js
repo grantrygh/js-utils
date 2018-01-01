@@ -17,14 +17,6 @@ function removeLeadingSlash(path) {
 export default function joinUrl(...args) {
     let ret = args[0];
 
-    // args.forEach((partial, index) => {
-    //     if (index === 0) {
-    //         ret += removeTrailingSlash(partial);
-    //     } else {
-    //         ret += '/' + removeLeadingSlash(partial);
-    //     }
-    // });
-
     args.forEach((partial, index) => {
         if (index > 0) ret += '/' + partial;
     });

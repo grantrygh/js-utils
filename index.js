@@ -1,37 +1,38 @@
-module.exports = {
-    get addScript() { return require('./lib/addScript').default; },
-    get addStylesheet() { return require('./lib/addStylesheet').default; },
-    get capitalize() { return require('./lib/capitalize').default; },
-    get classy() { return require('./lib/classy').default; },
-    get cookies() { return require('./lib/cookies').default; },
-    get countryCodes() { return require('./lib/countryCodes').default; },
-    get createChainableTypeChecker() { return require('./lib/createChainableTypeChecker').default; },
-    get domainLocalize() { return require('./lib/domainLocalize').default; },
-    get downloadFile() { return require('./lib/downloadFile').default; },
-    get easings() { return require('./lib/easings').default; },
-    get findGetParameter() { return require('./lib/findGetParameter').default; },
-    get format() { return require('./lib/format').default; },
-    get fullscreen() { return require('./lib/fullscreen').default; },
-    get fuzzyMatch() { return require('./lib/fuzzyMatch').default; },
-    get index() { return require('./lib/index').default; },
-    get invariant() { return require('./lib/invariant').default; },
-    get isExternalUrl() { return require('./lib/isExternalUrl').default; },
-    get joinUrl() { return require('./lib/joinUrl').default; },
-    get keymap() { return require('./lib/keymap').default; },
-    get logger() { return require('./lib/logger').default; },
-    get offView() { return require('./lib/offView').default; },
-    get parseJSX() { return require('./lib/parseJSX').default; },
-    get passProps() { return require('./lib/passProps').default; },
-    get polyfills() { return require('./lib/polyfills').default; },
-    get presets() { return require('./lib/presets').default; },
-    get pureRender() { return require('./lib/pureRender').default; },
-    get routeLoader() { return require('./lib/routeLoader').default; },
-    get scrollTo() { return require('./lib/scrollTo').default; },
-    get slugify() { return require('./lib/slugify').default; },
-    get storage() { return require('./lib/storage').default; },
-    get throttle() { return require('./lib/throttle').default; },
-    get time() { return require('./lib/time').default; },
-    get truncate() { return require('./lib/truncate').default; },
-    get warning() { return require('./lib/warning').default; },
-    get xhr() { return require('./lib/xhr').default; },
-};
+export Raven from './src/Raven';
+export addScript from './src/addScript';
+export addStylesheet from './src/addStylesheet';
+export capitalize from './src/capitalize';
+export classy from './src/classy';
+export cookies from './src/cookies';
+export countryCodes from './src/countryCodes';
+export createChainableTypeChecker from './src/createChainableTypeChecker';
+export deprecate from './src/deprecate';
+export domainLocalize from './src/domainLocalize';
+export downloadFile from './src/downloadFile';
+export easings from './src/easings';
+export findGetParameter from './src/findGetParameter';
+export format from './src/format';
+export fullscreen from './src/fullscreen';
+export fuzzyMatch from './src/fuzzyMatch';
+export generateUrlFromPath from './src/generateUrlFromPath';
+export index from './src/index';
+export invariant from './src/invariant';
+export isExternalUrl from './src/isExternalUrl';
+export joinUrl from './src/joinUrl';
+export keymap from './src/keymap';
+export logger from './src/logger';
+export offView from './src/offView';
+export parseJSX from './src/parseJSX';
+export passProps from './src/passProps';
+export polyfills from './src/polyfills';
+export presets from './src/presets';
+export pureRender from './src/pureRender';
+export routeLoader from './src/routeLoader';
+export scrollTo from './src/scrollTo';
+export slugify from './src/slugify';
+export storage from './src/storage';
+export throttle from './src/throttle';
+export time from './src/time';
+export truncate from './src/truncate';
+export warning from './src/warning';
+export xhr from './src/xhr';

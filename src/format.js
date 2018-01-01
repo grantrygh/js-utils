@@ -1,17 +1,10 @@
-// const FormatCurrency = Intl && new Intl.NumberFormat('en-US', {
-//     style: 'currency',
-//     currency: 'USD',
-//     minimumFractionDigits: 2,
-//     maximumFractionDigits: 2,
-// });
-
 const parseNumber = num => Number(num).toLocaleString();
 
 const parseCurrency = (amount, { split = false } = {}) => {
     const float = parseFloat(amount).toFixed(2);
     const parts = float.split('.');
     const sign = amount < 0 ? '-' : '';
-    
+
     if (split) {
         return {
             sign,
@@ -35,8 +28,7 @@ const size = bytes => {
     return bytes.toFixed(2) + unit;
 };
 
-export default { 
-    // currency: amount => FormatCurrency.format(Number(amount)),
+export default {
     currency: parseCurrency,
     number: parseNumber,
     size,

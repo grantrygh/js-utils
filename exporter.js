@@ -2,24 +2,34 @@ const fs = require('fs');
 const path = require('path');
 const watch = require('node-watch');
 
-const shouldWatch = process.argv[2];
+const argv = process.argv.slice(2);
+const shouldWatch = argv.indexOf('--watch') > -1;
 
 // Write util exports
-const writeExports = () => {
-    const utils = fs.readdirSync(path.resolve('lib'));
-    let content = 'module.exports = {\n';
+const writeExports = (folder) => {
+    const utils = fs.readdirSync(path.resolve(folder));
+    let content = '';
 
     utils.forEach(util => {
         const component = util.split('.js')[0];
-        content += `    get ${component}() { return require('./lib/${component}').default; },\n`;
+        if (folder === 'dist') {
+            content += `export ${component} from './${component}';\n`;
+        } else {
+            content += `export ${component} from './${folder}/${component}';\n`;
+        }
     });
-
-    content += '};\n';
-
-    fs.writeFileSync('index.js', content);
+    if (folder === 'dist') {
+        fs.writeFileSync('dist/index.js', content);
+    } else {
+        fs.writeFileSync('index.js', content);
+    }
     console.log('Exporter: updated exports.');
 }
 
-writeExports();
+writeExports('src');
 
-if (shouldWatch) watch('./lib', writeExports);
+if (shouldWatch) watch('./src', () => { writeExports('src'); });
+
+if (argv.indexOf('--dist') > -1) {
+    writeExports('dist');
+}
