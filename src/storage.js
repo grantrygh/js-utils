@@ -38,7 +38,7 @@ const storage = Object.assign({}, no_op, {
     cookies: no_op,
 });
 
-if (process.env.isBrowser) {
+if (__BROWSER__) {
     storage.cookies = createStorage(cookies);
 
     try {

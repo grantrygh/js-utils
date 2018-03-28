@@ -13,7 +13,7 @@ const writeExports = (folder) => {
     utils.forEach(util => {
         const component = util.split('.js')[0];
         if (folder === 'dist') {
-            content += `export ${component} from './${component}';\n`;
+            content += `exports['${component}'] = require('./${component}');\n`;
         } else {
             content += `export ${component} from './${folder}/${component}';\n`;
         }
@@ -23,13 +23,12 @@ const writeExports = (folder) => {
     } else {
         fs.writeFileSync('index.js', content);
     }
-    console.log('Exporter: updated exports.');
-}
-
-writeExports('src');
-
-if (shouldWatch) watch('./src', () => { writeExports('src'); });
+    console.log('Exporter: updated exports.'); // eslint-disable-line
+};
 
 if (argv.indexOf('--dist') > -1) {
     writeExports('dist');
+} else {
+    writeExports('src');
+    if (shouldWatch) watch('./src', () => { writeExports('src'); });
 }
