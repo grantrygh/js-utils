@@ -1,9 +1,6 @@
 node_modules
 dist
-dll
 tmp
-
-.vscode
 
 stats.json
 
@@ -84,8 +81,3 @@ Temporary Items
 
 # sftp configuration file
 sftp-config.json
-
-app/compiled
-app/components.js
-app/examples.js
-app/themes.js

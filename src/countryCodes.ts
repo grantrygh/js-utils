@@ -1,4 +1,3 @@
-/* eslint-disable */
 const countries = {
     AF: 'Afghanistan',
     AX: 'Åland Islands',
@@ -53,7 +52,7 @@ const countries = {
     CD: 'Congo, The Democratic Republic of the',
     CK: 'Cook Islands',
     CR: 'Costa Rica',
-    CI: 'Cote D\'Ivoire',
+    CI: "Cote D'Ivoire",
     HR: 'Croatia',
     CU: 'Cuba',
     CY: 'Cyprus',
@@ -115,11 +114,11 @@ const countries = {
     KZ: 'Kazakhstan',
     KE: 'Kenya',
     KI: 'Kiribati',
-    KP: 'Korea, Democratic People\'S Republic of',
+    KP: "Korea, Democratic People'S Republic of",
     KR: 'Korea, Republic of',
     KW: 'Kuwait',
     KG: 'Kyrgyzstan',
-    LA: 'Lao People\'S Democratic Republic',
+    LA: "Lao People'S Democratic Republic",
     LV: 'Latvia',
     LB: 'Lebanon',
     LS: 'Lesotho',

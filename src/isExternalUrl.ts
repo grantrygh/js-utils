@@ -1,9 +1,9 @@
 /**
  * Check if a URL/path is external
- * 
+ *
  * @param {string} path - URL/path to test
  * @param {Location=} location - location from router. origin matching wont work if not passed
- * 
+ *
  * @returns {boolean} is path external
  */
 export default function isExternalUrl(path: string, location?: Location): boolean {

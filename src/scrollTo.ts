@@ -1,20 +1,18 @@
 import easings from './easings';
 
-type scrollConfig = {
-    callback?: Function,
-    duration?: number,
-    easing: Function,
-};
+interface scrollConfig {
+    callback?: Function;
+    duration?: number;
+    easing: Function;
+}
 
-export default function scrollTo(to: number, 
-    {
-        callback,
-        duration = 500,
-        easing = easings.easeInOutQuad,
-    }: scrollConfig) {
+export default function scrollTo(
+    to: number,
+    { callback, duration = 500, easing = easings.easeInOutQuad }: scrollConfig
+) {
     const initialY = window.scrollY;
     const initialX = window.scrollX;
-    
+
     if (duration) {
         const diff = to - initialY;
         const increment = 20;
@@ -33,7 +31,7 @@ export default function scrollTo(to: number,
                 callback();
             }
         };
-        
+
         animateScroll();
     } else {
         window.scrollTo(initialX, to);
