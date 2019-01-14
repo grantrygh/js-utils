@@ -11,18 +11,23 @@ const writeExports = (folder) => {
     let content = '';
 
     utils.forEach(util => {
-        const component = util.split('.js')[0];
-        if (folder === 'dist') {
-            content += `exports['${component}'] = require('./${component}');\n`;
-        } else {
-            content += `export ${component} from './${folder}/${component}';\n`;
+        if (util.indexOf('.ts') > -1) {
+            const component = util.split('.ts')[0];
+        
+            if (folder === 'dist') {
+                content += `exports['${component}'] = require('./${component}');\n`;
+            } else {
+                content += `export { default as ${component} } from './${folder}/${component}';\n`;
+            }
         }
     });
+
     if (folder === 'dist') {
-        fs.writeFileSync('dist/index.js', content);
+        fs.writeFileSync('dist/index.ts', content);
     } else {
-        fs.writeFileSync('index.js', content);
+        fs.writeFileSync('index.ts', content);
     }
+
     console.log('Exporter: updated exports.'); // eslint-disable-line
 };
 

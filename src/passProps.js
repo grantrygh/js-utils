@@ -6,7 +6,6 @@ const passThroughProps = [
     'className',
     'onClick',
     'style',
-    'data-',
 ];
 
 export default function passProps(props, { include = [], exclude = [] } = {}) {
@@ -16,6 +15,7 @@ export default function passProps(props, { include = [], exclude = [] } = {}) {
         if (
             (
                 passThroughProps.indexOf(prop) > -1 || 
+                prop.indexOf('data-') === 0 ||
                 include.indexOf(prop) > -1
             ) && 
             exclude.indexOf(prop) === -1

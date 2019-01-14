@@ -1,11 +1,8 @@
-// @flow
-
-import { easeInOutQuad } from './easings';
+import easings from './easings';
 
 type scrollConfig = {
     callback?: Function,
-    duration: number,
-    targetNode: any,
+    duration?: number,
     easing: Function,
 };
 
@@ -13,12 +10,10 @@ export default function scrollTo(to: number,
     {
         callback,
         duration = 500,
-        targetNode = window,
-        easing = easeInOutQuad,
-    }: scrollConfig = {},
-) {
-    const initialY = targetNode.scrollY;
-    const initialX = targetNode.scrollX;
+        easing = easings.easeInOutQuad,
+    }: scrollConfig) {
+    const initialY = window.scrollY;
+    const initialX = window.scrollX;
     
     if (duration) {
         const diff = to - initialY;
@@ -29,7 +24,7 @@ export default function scrollTo(to: number,
             currentTime += increment;
 
             const newScrollTop = easing(currentTime, initialY, diff, duration);
-            targetNode.scrollTo(initialX, newScrollTop); // eslint-disable-line no-param-reassign
+            window.scrollTo(initialX, newScrollTop); // eslint-disable-line no-param-reassign
 
             // animate unless its over
             if (currentTime < duration) {
@@ -41,6 +36,6 @@ export default function scrollTo(to: number,
         
         animateScroll();
     } else {
-        targetNode.scrollTo(initialX, to);
+        window.scrollTo(initialX, to);
     }
 }
