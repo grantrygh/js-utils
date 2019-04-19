@@ -1,6 +1,6 @@
 /* eslint-disable */
 
-const cookies = {
+export const cookies = {
     getItem(sKey) {
         if (typeof document !== 'object') return null;
 
@@ -87,5 +87,3 @@ const cookies = {
         return aKeys;
     },
 };
-
-export default cookies;

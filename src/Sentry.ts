@@ -19,4 +19,4 @@ if (__BROWSER__) {
     Sentry = require('@sentry/node');
 }
 
-export default Sentry;
+export { Sentry };

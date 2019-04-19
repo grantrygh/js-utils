@@ -1,4 +1,4 @@
-const countries = {
+export const countries = {
     AF: 'Afghanistan',
     AX: 'Åland Islands',
     AL: 'Albania',
@@ -243,5 +243,3 @@ const countries = {
     ZM: 'Zambia',
     ZW: 'Zimbabwe',
 };
-
-export default countries;

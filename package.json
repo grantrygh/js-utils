@@ -1,12 +1,7 @@
 {
     "name": "@audentio/utils",
-    "version": "3.0.0",
+    "version": "4.0.0",
     "description": "Audentio front-end Javascript utilities",
-    "module": "index.js",
-    "main": "dist/index.js",
-    "scripts": {
-        "export": "node exporter"
-    },
     "repository": {
         "type": "git",
         "url": "git+ssh://git@github.com/Audentio/js-utils.git"

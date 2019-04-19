@@ -6,7 +6,7 @@ const logged = {};
  * @param what What is being deprecated?
  * @param message Message (long)
  */
-export default function deprecate(what: string, message?: string): void {
+export function deprecate(what: string, message?: string): void {
     if (logged[what]) return;
 
     if (__BROWSER__) {

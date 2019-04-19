@@ -3,7 +3,7 @@
  *
  * @param {string} text - string that you want to convert
  */
-export default function slugify(text: string): string {
+export function slugify(text: string): string {
     return text
         .toString()
         .toLowerCase()

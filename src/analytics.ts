@@ -3,7 +3,7 @@ import { GA_ID, GA_FORCE_ENABLE } from 'config/application';
 
 const shouldLog = GA_ID && (!__DEV__ || GA_FORCE_ENABLE);
 
-const analytics = {
+export const analytics = {
     initialize(trackingCode: string, options?: InitializeOptions) {
         if (shouldLog) ReactGA.initialize(trackingCode, options);
     },
@@ -30,5 +30,3 @@ const analytics = {
         if (shouldLog) ReactGA.exception(fieldsObject, trackerNames);
     },
 };
-
-export default analytics;

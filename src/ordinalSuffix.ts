@@ -1,4 +1,4 @@
-export default function ordinalSuffix(_i: string | number): string {
+export function ordinalSuffix(_i: string | number): string {
     const i = Number(_i);
     const j = i % 10;
     const k = i % 100;

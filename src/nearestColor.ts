@@ -394,4 +394,4 @@ nearestColor.DEFAULT_COLORS = mapColors([
     'rgb(156, 39, 176)',
 ]);
 
-export default nearestColor;
+export { nearestColor };

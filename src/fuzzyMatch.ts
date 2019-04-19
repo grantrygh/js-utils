@@ -7,7 +7,7 @@
 // score: integer; higher is better match. Value has no intrinsic meaning. Range varies with pattern.
 //        Can only compare scores with same search pattern.
 // formattedStr: input str with matched characters marked in <b> tags. Delete if unwanted.
-export default function fuzzyMatch(pattern, str) {
+export function fuzzyMatch(pattern, str) {
     // Score consts
     var adjacency_bonus = 5; // bonus for adjacent matches
     var separator_bonus = 10; // bonus if match occurs after a separator

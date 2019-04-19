@@ -2,19 +2,19 @@
     "compilerOptions": {
         "target": "esnext",
         "module": "esnext",
-        "lib": ["es2017", "dom"],
+        "lib": ["es2015", "es2017", "dom"],
         "moduleResolution": "node",
         "jsx": "preserve",
         "baseUrl": ".",
         "emitDecoratorMetadata": true,
         "experimentalDecorators": true,
         "sourceMap": true,
+        "noUnusedLocals": true,
         "allowSyntheticDefaultImports": true,
         "noErrorTruncation": true
     },
-    "include": ["./src/**/*", "./decl.d.ts"],
     "typeAcquisition": {
         "enable": true
     },
-    "exclude": ["node_modules", "dist"]
+    "exclude": ["node_modules", "lib"]
 }

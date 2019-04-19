@@ -1,4 +1,4 @@
-export default function dedupeArray(list, identifier = 'id') {
+export function dedupeArray(list, identifier = 'id') {
     const deduped = [];
     const added = [];
 

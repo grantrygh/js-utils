@@ -1,5 +1,5 @@
 // TODO: A more robust solution (aka one that actually works)
-export default function downloadFile(url, filename) {
+export function downloadFile(url, filename) {
     const el = document.createElement('a');
     el.style.display = 'none';
     el.href = url;

@@ -1,5 +1,5 @@
 /* eslint-disable */
-export default function throttle(func: Function, wait: number, leading = true) {
+export function throttle(func: Function, wait: number, leading = true) {
     var context, args, result;
     var timeout = null;
     var previous = 0;

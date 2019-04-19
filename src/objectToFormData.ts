@@ -6,7 +6,7 @@ const isArray = value => value !== null && value.constructor === Array; // faste
 
 const isFile = value => value instanceof File;
 
-export default function objectToFormData(body_unfiltered, $form_data?: FormData, pre?: any): FormData {
+export function objectToFormData(body_unfiltered, $form_data?: FormData, pre?: any): FormData {
     const form_data = $form_data || new FormData();
     const body = {};
 

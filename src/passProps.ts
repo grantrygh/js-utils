@@ -10,7 +10,7 @@ const passThroughProps = [
     'id',
 ];
 
-export default function passProps(props: any, opts?: any) {
+export function passProps(props: any, opts?: any) {
     const { include = [], exclude = [] } = opts || {};
     const filteredProps = {};
 

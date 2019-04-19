@@ -1,4 +1,4 @@
-export default function capitalizeFirst(str: string) {
+export function capitalizeFirst(str: string) {
     if (!str) return '';
     return str.charAt(0).toUpperCase() + str.slice(1);
 }
