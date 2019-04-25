@@ -3,6 +3,7 @@ const passThroughProps = [
     'onMouseOver',
     'onMouseEnter',
     'onMouseLeave',
+    'onKeyPress',
     'className',
     'onClick',
     'required',
