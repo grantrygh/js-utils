@@ -1,10 +1,10 @@
 /**
  * Get valid classNames from multiple expressions
- * 
+ *
  * @param {...string|...booleans} classNames - strings and falsy values. falsy values will be dicarded
  * @returns {string} className
  */
-export default function classy(...args: Array<string|boolean>): string {
+export function classy(...args: Array<string | boolean>): string {
     let classname: string = '';
 
     args.forEach((arg: string) => {

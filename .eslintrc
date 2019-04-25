@@ -1,27 +1,3 @@
 {
-    "extends": "@audentio/standard",
-    "rules": {
-      "no-confusing-arrow": ["off"],
-      "no-console": ["off"],
-      "global-require": ["off"],
-      "react/prop-types": ["off"],
-      "react/jsx-filename-extension": [
-        1,
-        {
-          "extensions": [
-            ".jsx",
-            ".tsx"
-          ]
-        }
-      ]
-    },
-    "overrides": [
-        {
-            "files": ["**/*.ts", "**/*.tsx"],
-            "rules": {
-                "no-undef": ["off"]
-            }
-        }
-    ]
-  }
-  
+    "extends": ["@audentio/standard", "prettier", "prettier/react"]
+}

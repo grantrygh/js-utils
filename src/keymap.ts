@@ -1,4 +1,4 @@
-const keymap = {
+export const keymap = {
     BACKSPACE: 8,
     TAB: 9,
     ENTER: 13,
@@ -99,5 +99,3 @@ const keymap = {
     CLOSE_BRACKET: 221,
     SINGLE_QUOTE: 222,
 };
-
-export default keymap;
