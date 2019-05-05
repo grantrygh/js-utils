@@ -1,18 +1,20 @@
-/* eslint-disable */
-export function throttle(func: Function, wait: number, leading = true) {
-    var context, args, result;
-    var timeout = null;
-    var previous = 0;
-    var later = function() {
+export function throttle<T extends (...args: any[]) => void>(func: T, wait: number, leading = true): T {
+    let context;
+    let args;
+    let result;
+    let timeout = null;
+    let previous = 0;
+    const later = () => {
         previous = leading === false ? 0 : Date.now();
         timeout = null;
         result = func.apply(context, args);
         if (!timeout) context = args = null;
     };
-    return function() {
-        var now = Date.now();
+
+    return function throttledFunction() {
+        const now = Date.now();
         if (!previous && leading === false) previous = now;
-        var remaining = wait - (now - previous);
+        const remaining = wait - (now - previous);
         context = this;
         args = arguments;
         if (remaining <= 0 || remaining > wait) {
@@ -27,5 +29,5 @@ export function throttle(func: Function, wait: number, leading = true) {
             timeout = setTimeout(later, remaining);
         }
         return result;
-    };
+    } as any;
 }
