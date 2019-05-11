@@ -3,10 +3,10 @@ import { easings } from './easings';
 interface scrollConfig {
     callback?: Function;
     duration?: number;
-    easing: Function;
+    easing?: Function;
 }
 
-export function scrollTo(to: number, { callback, duration = 500, easing = easings.easeInOutQuad }: scrollConfig) {
+export function scrollTo(to: number, { callback, duration = 500, easing = easings.easeInOutQuad }: scrollConfig = {}) {
     const initialY = window.scrollY;
     const initialX = window.scrollX;
 
