@@ -9,4 +9,6 @@ export function format(value: number, type: formatType = 'number') {
         case 'ordinal':
             return ordinalSuffix(value);
     }
+
+    return value;
 }
