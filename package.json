@@ -6,6 +6,9 @@
         "type": "git",
         "url": "git+ssh://git@github.com/Audentio/js-utils.git"
     },
+    "scripts": {
+        "release": "release-it"
+    },
     "author": "Audentio",
     "license": "ISC",
     "bugs": {
@@ -23,7 +26,8 @@
         "babel-core": "^7.0.0-0",
         "babel-jest": "23.6.0",
         "eslint-config-prettier": "^4.2.0",
-        "node-watch": "0.6.0"
+        "node-watch": "0.6.0",
+        "release-it": "^12.3.0"
     },
     "dependencies": {
         "prettier": "1.15.3",
