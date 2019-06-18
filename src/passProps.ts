@@ -113,7 +113,6 @@ const passThroughProps = [
     'title',
     'type',
     'useMap',
-    'value',
     'width',
     'wmode',
     'wrap',
