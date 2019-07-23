@@ -1,38 +1,42 @@
 {
-    "name": "@audentio/utils",
-    "version": "4.2.0",
-    "description": "Audentio front-end Javascript utilities",
-    "repository": {
-        "type": "git",
-        "url": "git+ssh://git@github.com/Audentio/js-utils.git"
-    },
-    "scripts": {
-        "release": "release-it"
-    },
-    "author": "Audentio",
-    "license": "ISC",
-    "bugs": {
-        "url": "https://github.com/Audentio/js-utils/issues"
-    },
-    "homepage": "https://github.com/Audentio/js-utils#readme",
-    "devDependencies": {
-        "@audentio/eslint-config-standard": "2.2.0",
-        "@babel/core": "7.5.5",
-        "@babel/plugin-proposal-decorators": "7.4.4",
-        "@babel/preset-env": "7.5.5",
-        "@babel/preset-react": "7.0.0",
-        "@babel/preset-stage-0": "7.0.0",
-        "@babel/preset-typescript": "7.3.3",
-        "babel-core": "^7.0.0-0",
-        "babel-jest": "24.8.0",
-        "eslint-config-prettier": "^6.0.0",
-        "node-watch": "0.6.2",
-        "release-it": "^12.3.3"
-    },
-    "dependencies": {
-        "prettier": "1.18.2",
-        "query-string": "^6.8.1",
-        "typescript": "3.5.3",
-        "yup": "^0.27.0"
-    }
+  "name": "@audentio/utils",
+  "version": "4.2.0",
+  "description": "Audentio front-end Javascript utilities",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/Audentio/js-utils.git"
+  },
+  "scripts": {
+    "release": "release-it",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
+  },
+  "author": "Audentio",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Audentio/js-utils/issues"
+  },
+  "homepage": "https://github.com/Audentio/js-utils#readme",
+  "devDependencies": {
+    "@audentio/eslint-config-standard": "2.2.0",
+    "@babel/core": "7.5.5",
+    "@babel/plugin-proposal-decorators": "7.4.4",
+    "@babel/preset-env": "7.5.5",
+    "@babel/preset-react": "7.0.0",
+    "@babel/preset-stage-0": "7.0.0",
+    "@babel/preset-typescript": "7.3.3",
+    "babel-core": "^7.0.0-0",
+    "babel-jest": "24.8.0",
+    "eslint-config-prettier": "^6.0.0",
+    "node-watch": "0.6.2",
+    "release-it": "^12.3.3",
+    "snyk": "^1.189.0"
+  },
+  "dependencies": {
+    "prettier": "1.18.2",
+    "query-string": "^6.8.1",
+    "typescript": "3.5.3",
+    "yup": "^0.27.0"
+  },
+  "snyk": true
 }
