@@ -23,14 +23,6 @@ declare module '*.jpeg' {
     export default __image__;
 }
 
-declare module 'react-i18next' {
-    export function translate(namespaces: Array<string>): any;
-    interface I18nextProviderProps {
-        i18n: any;
-    }
-    export class I18nextProvider extends React.Component<I18nextProviderProps> {}
-}
-
 declare module 'react-redux' {
     type obj = { [key: string]: any };
     type mapStateToProps = (state: obj, props: obj) => obj;

@@ -28,16 +28,12 @@ export const cookies = {
         }
         var sExpires = '';
         if (vEnd) {
-            switch (vEnd.constructor) {
-                case Number:
-                    sExpires = vEnd === Infinity ? '; expires=Fri, 31 Dec 9999 23:59:59 GMT' : '; max-age=' + vEnd;
-                    break;
-                case String:
-                    sExpires = '; expires=' + vEnd;
-                    break;
-                case Date:
-                    sExpires = '; expires=' + vEnd.toUTCString();
-                    break;
+            if (typeof vEnd === 'number') {
+                sExpires = vEnd === Infinity ? '; expires=Fri, 31 Dec 9999 23:59:59 GMT' : '; max-age=' + vEnd;
+            } else if (typeof vEnd === 'string') {
+                sExpires = '; expires=' + vEnd;
+            } else if (vEnd instanceof Date) {
+                sExpires = '; expires=' + vEnd.toUTCString();
             }
         }
         document.cookie =
