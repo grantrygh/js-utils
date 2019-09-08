@@ -7,6 +7,10 @@
  * @returns {boolean} is path external
  */
 export function isExternalUrl(path: string, location?: Location): boolean {
+    if (!path) {
+        return false;
+    }
+
     if (location && path.indexOf(location.origin) === 0) {
         // If `path` is full URL but origin is same
         // not external
