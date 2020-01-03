@@ -31,6 +31,7 @@
         "eslint-config-prettier": "^6.4.0",
         "node-watch": "0.6.3",
         "prettier": "^1.18.2",
+        "react-router-dom": "^5.1.2",
         "release-it": "^12.4.3",
         "snyk": "^1.236.1",
         "typescript": "^3.6.4"
